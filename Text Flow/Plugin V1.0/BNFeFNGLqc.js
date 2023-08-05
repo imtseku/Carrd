@@ -1,3 +1,6 @@
+// TEXT FLOW V1.0.0 | CARRD PLUGIN
+// Made by Tseku | www.imtseku.com | © imtseku, 2023
+
 const textFlow = document.querySelectorAll(".imtf, .imtf-right, .imtf-left");
 
 // Function to clone an element and its descendants
