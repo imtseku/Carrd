@@ -1,62 +1,65 @@
-const imSlider = document.querySelectorAll(".im-slider, .im-slider-reverse");
+  <script>
+    const textFlow = document.querySelectorAll(".imtf, .imtf-right, .imtf-left");
 
-// Function to clone an element and its descendants
-function cloneElementWithDescendants(element, numClones) {
-  const clonedElements = [];
-  for (let i = 0; i < numClones; i++) {
-    const clone = element.cloneNode(true);
-    element.parentNode.appendChild(clone);
-    clonedElements.push(clone);
-  }
-  return clonedElements;
-}
-
-// Cloning all descendants inside the first "u" or "a" element 5 times
-imSlider.forEach((imChild) => {
-  const uOrAElement = imChild.querySelector("*");
-  if (uOrAElement) {
-    const descendants = Array.from(uOrAElement.querySelectorAll("*"));
-    const numClones = 3;
-    const totalClones = descendants.length * numClones;
-
-    for (let i = 0; i < totalClones; i++) {
-      const index = i % descendants.length;
-      const clonedElement = cloneElementWithDescendants(descendants[index], 1);
+    // Function to clone an element and its descendants
+    function textFlowCloner(cloneTarget, cloneNum) {
+      const clonedElements = [];
+      for (let i = 0; i < cloneNum; i++) {
+        const clone = cloneTarget.cloneNode(true);
+        cloneTarget.parentNode.appendChild(clone);
+        clonedElements.push(clone);
+      }
+      return clonedElements;
     }
-  }
-});
 
-// Cloning the first "u" or "a" element directly
-imSlider.forEach((imChild) => {
-  const firstUOrAElement = imChild.querySelector("*");
-  if (firstUOrAElement) {
-    const clonedElement = cloneElementWithDescendants(firstUOrAElement, 1);
-  }
-});
+    // Cloning all descendants inside the first "u" or "a" element 5 times
+    textFlow.forEach((textFlowChildCloner) => {
+      const textFlowChild = textFlowChildCloner.querySelector("*");
+      if (textFlowChild) {
+        const textFlowGrandChild = Array.from(textFlowChild.querySelectorAll("*"));
+        const cloneNum = textFlowStyle["duplicate"];
+        const totalClones = textFlowGrandChild.length * cloneNum;
 
-for (let i = 0; i < imSlider.length; i++) {
-  const imSliderChildren = imSlider[i].children;
-
-  Array.from(imSliderChildren).forEach((child) => {
-    child.style.animationDuration = sliderStyle.speed;
-  });
-
-  imSlider[i].style.color = sliderStyle["text color"];
-  imSlider[i].style.backgroundColor = sliderStyle["background color"];
-
-  if (imSlider[i].querySelector("a")) {
-    imSlider[i].addEventListener("mouseover", function () {
-      this.style.color = sliderStyle["hover text color"];
-      this.style.backgroundColor = sliderStyle["hover background color"];
+        for (let i = 0; i < totalClones; i++) {
+          const cloneIndex = i % textFlowGrandChild.length;
+          const clonedElement = textFlowCloner(textFlowGrandChild[cloneIndex], 1);
+        }
+      }
     });
 
-    imSlider[i].addEventListener("mouseout", function () {
-      this.style.color = sliderStyle["text color"];
-      this.style.backgroundColor = sliderStyle["background color"];
+    // Cloning the first "u" or "a" element directly
+    textFlow.forEach((textFlowChildCloner) => {
+      const textFlowFirstChild = textFlowChildCloner.querySelector("*");
+      if (textFlowFirstChild) {
+        const clonedElement = textFlowCloner(textFlowFirstChild, 1);
+      }
     });
-  }
-}
 
-imSlider.forEach((el) => {
-  el.style.setProperty("--im-slider-gap", sliderStyle.space);
-});
+    // Style Customization
+    for (let i = 0; i < textFlow.length; i++) {
+      const textFlowChildren = textFlow[i].children;
+
+      Array.from(textFlowChildren).forEach((child) => {
+        child.style.animationDuration = textFlowStyle.duration;
+      });
+
+      textFlow[i].style.color = textFlowStyle["text color"];
+      textFlow[i].style.backgroundColor = textFlowStyle["background color"];
+
+      if (textFlow[i].querySelector("a")) {
+        textFlow[i].addEventListener("mouseover", function () {
+          this.style.color = textFlowStyle["hover text color"];
+          this.style.backgroundColor = textFlowStyle["hover background color"];
+        });
+
+        textFlow[i].addEventListener("mouseout", function () {
+          this.style.color = textFlowStyle["text color"];
+          this.style.backgroundColor = textFlowStyle["background color"];
+        });
+      }
+    }
+
+    textFlow.forEach((el) => {
+      el.style.setProperty("--text-flow-gap", textFlowStyle.space);
+    });
+  </script>
