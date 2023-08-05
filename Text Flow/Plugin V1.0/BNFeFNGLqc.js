@@ -1,4 +1,3 @@
-
 const textFlow = document.querySelectorAll(".imtf, .imtf-right, .imtf-left");
 
 // Function to clone an element and its descendants
