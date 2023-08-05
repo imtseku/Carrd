@@ -1,5 +1,3 @@
-// New update something like a like yeah
-
 const textFlow = document.querySelectorAll(".imtf, .imtf-right, .imtf-left");
 
 // Function to clone an element and its descendants
@@ -13,7 +11,7 @@ function textFlowCloner(cloneTarget, cloneNum) {
   return clonedElements;
 }
 
-// Cloning all descendants inside the first "u" or "a" element 5 times
+// Cloning all descendants inside the first child element cloneNum times
 textFlow.forEach((textFlowChildCloner) => {
   const textFlowChild = textFlowChildCloner.querySelector("*");
   if (textFlowChild) {
@@ -28,7 +26,7 @@ textFlow.forEach((textFlowChildCloner) => {
   }
 });
 
-// Cloning the first "u" or "a" element directly
+// Cloning the first child element directly
 textFlow.forEach((textFlowChildCloner) => {
   const textFlowFirstChild = textFlowChildCloner.querySelector("*");
   if (textFlowFirstChild) {
