@@ -1,0 +1,54 @@
+  <style>
+    :is(.imtf,
+      .imtf-right,
+      .imtf-left) {
+      --text-flow-gap: 1rem;
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      gap: var(--text-flow-gap);
+      position: relative;
+    }
+
+    :is(.imtf,
+      .imtf-right,
+      .imtf-left)>* {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-around;
+      min-width: 100%;
+      gap: var(--text-flow-gap);
+
+      animation-name: text-flow;
+      animation-duration: 60s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    :is(.imtf-right)>* {
+      animation-direction: reverse;
+    }
+
+    @keyframes text-flow {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(-100% - var(--text-flow-gap)));
+      }
+    }
+
+    :is(.imtf,
+      .imtf-right,
+      .imtf-left)>* {
+      text-decoration: none !important;
+    }
+
+    :is(.imtf,
+      .imtf-right,
+      .imtf-left)>*>* {
+      font-style: normal !important;
+      text-decoration: none !important;
+    }
+  </style>
