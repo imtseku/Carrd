@@ -3,15 +3,23 @@
   Made by Tseku | www.imtseku.com | © imtseku, 2023 
 */
 
+:root {
+  --imtf-gap: 1rem;
+}
+
 :is(.imtf,
   .imtf-right,
   .imtf-left) {
-  --text-flow-gap: 1rem;
   display: flex;
   overflow: hidden;
   user-select: none;
-  gap: var(--text-flow-gap);
   position: relative;
+}
+
+:is(.imtf,
+  .imtf-right,
+  .imtf-left) {
+  gap: var(--imtf-gap);
 }
 
 :is(.imtf,
@@ -21,7 +29,7 @@
   display: flex;
   justify-content: space-around;
   min-width: 100%;
-  gap: var(--text-flow-gap);
+  gap: var(--imtf-gap);
 
   animation-name: text-flow;
   animation-duration: 60s;
@@ -39,7 +47,7 @@
   }
 
   to {
-    transform: translateX(calc(-100% - var(--text-flow-gap)));
+    transform: translateX(calc(-100% - var(--imtf-gap)));
   }
 }
 
