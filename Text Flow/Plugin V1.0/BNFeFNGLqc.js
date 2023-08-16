@@ -1,12 +1,6 @@
 // TEXT FLOW V1.0.0 | CARRD PLUGIN
 // Made by Tseku | www.imtseku.com | © imtseku, 2023
 
-const textFlowOptions = {
-  "duplicate": "2",
-  "space": "1",
-  "duration": "60s"
-};
-
 // 3.4 The content of the stylesheet
 const styleSheetContent = `
 /* 
