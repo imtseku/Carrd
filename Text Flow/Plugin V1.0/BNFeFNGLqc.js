@@ -81,3 +81,7 @@ function createStyleElement(id, content) {
 
 // 3.3 Append stylesheet.
 appendStyleSheet("www.imtseku.com", styleSheetContent);
+
+// 4.1 Dynamicaly add CSS Library
+var html = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/imtseku/Carrd@80915cfa081cf97eda7a1d0dc1c12fdb848059ec/Text%20Flow/Plugin%20V1.0/CMjKjDccs2.css">';
+document.head.innerHTML += html;
